@@ -32,4 +32,27 @@ public class Order {
 
         return order;
     }
+
+    public Product[] getProducts() throws Exception {
+        ResultSet resultSet = DBManager.sendQuery(
+            "SELECT * FROM `product` JOIN `orders_in_products` ON `product`.id = `orders_in_products`.`product_id` WHERE `orders_in_products`.`order_id` = "+id+""
+        );
+        Product[] products = new Product[resultSet.getRow()];
+        int i = 0;
+        while (resultSet.next()) {
+            products[i] = new Product(
+                resultSet.getInt(1), 
+                resultSet.getString(2), 
+                resultSet.getString(3), 
+                resultSet.getString(4), 
+                resultSet.getFloat(5),
+                resultSet.getInt(6),
+                resultSet.getInt(7),
+                resultSet.getString(8),
+                resultSet.getInt(9)
+            );
+            i++;
+        }
+        return products;
+    }
 }
