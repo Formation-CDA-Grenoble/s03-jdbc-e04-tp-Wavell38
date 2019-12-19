@@ -1,7 +1,7 @@
 # Réponse au quiz
 
 1. Combien de colonnes aura la table **question** en base de données? Donne le nom de chacune de ces colonnes.
-    - La table question aura cinq colonnes.
+    - La table question aura six colonnes.
     - id
     - description
     - difficulty
