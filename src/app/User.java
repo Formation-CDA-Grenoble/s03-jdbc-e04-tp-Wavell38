@@ -1,7 +1,7 @@
 package app;
 import java.sql.*;
 
-public class User {
+public class User extends DefaultManager {
     private int id;
     private String email;
     private String password;
@@ -12,17 +12,5 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
-    }
-
-    public static User find(int id) throws Exception {
-        ResultSet resultSet = DBManager.sendQuery(
-            "SELECT * FROM `user` WHERE `id` = "+id+""
-        );
-        User user = null; 
-        while (resultSet.next()) {
-            user = new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
-        }
-
-        return user;
     }
 }

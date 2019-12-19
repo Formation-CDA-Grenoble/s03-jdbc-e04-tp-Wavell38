@@ -2,7 +2,7 @@ package app;
 
 import java.sql.*;
 
-public class Order {
+public class Order extends DefaultManager {
     private int id;
     private String reference;
     private Date date;
@@ -17,20 +17,6 @@ public class Order {
         this.status = status;
         this.user = user;
         this.shippingAddress = shippingAddress;
-    }
-
-    public static Order find(int id) throws Exception {
-        ResultSet resultSet = DBManager.sendQuery(
-            "SELECT * FROM `_order` WHERE `id` = "+id+""
-        );
-        Order order = null; 
-        while (resultSet.next()) {
-            ShippingAddress sa = ShippingAddress.find(resultSet.getInt(6));
-            User user = User.find(resultSet.getInt(5));
-            order = new Order(resultSet.getInt(1), resultSet.getString(2), resultSet.getDate(3), resultSet.getInt(4), user, sa);
-        }
-
-        return order;
     }
 
     public Product[] getProducts() throws Exception {
