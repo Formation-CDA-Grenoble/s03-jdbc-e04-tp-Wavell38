@@ -16,10 +16,10 @@
     - Le losange blanc **Quiz** _written by_ **User** il s'agit d'une relation d'agrégation. Donc quand on supprime un user ca ne supprimera pas les quiz liés. A la différence de la relation de composition entre **Question** _belongs to_ **Quiz**. Donc quand on supprime un quiz les questions liés sont supprimées.
 
 4. Combien de question peut-il y avoir dans un questionnaire (minimum et maximum)?
-    - Il peut y avoir au minimum une question et au maximum quatre questions dans un questionnaire.
+    - De zéro à l'infini.
 
 5. Combien de réponses chaque question peut-elle avoir (minimum et maximum)?
-    - Il peut y avoir une seule réponse pour chaque question.
+    - - Il peut y avoir au minimum une réponse et au maximum quatre réponses dans un questionnaire.
 
 6. Que se passe-t-il si je supprime une question?
     - Les réponses associées seront supprimées.
